@@ -54,7 +54,7 @@ class IamportPayment extends StatelessWidget {
         gestureRecognizers: this.gestureRecognizers,
         executeJS: (WebViewController controller) {
           controller.evaluateJavascript('''
-            this.tierCode ? IMP.agency("${this.userCode}", "${this.tierCode}") : IMP.init("${this.userCode}");
+            "${this.tierCode != null ? 'IMP.agency("${this.userCode}", "${this.tierCode}")' : 'IMP.init("${this.userCode}")'}";
             IMP.request_pay(${jsonEncode(this.data.toJson())}, function(response) {
               const query = [];
               Object.keys(response).forEach(function(key) {
