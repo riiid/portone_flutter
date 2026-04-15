@@ -9,7 +9,8 @@ part 'payment_data.g.dart';
 
 @JsonSerializable()
 class PaymentData {
-  String? pg; // PG사
+  String? pg; // PG사 (지원 중단 예정, channelKey 사용 권장)
+  String? channelKey; // 채널키 (pg 대체)
 
   @JsonKey(name: 'pay_method')
   String payMethod; // 결제수단
@@ -100,6 +101,7 @@ class PaymentData {
 
   PaymentData({
     this.pg,
+    this.channelKey,
     required this.payMethod,
     this.escrow,
     required this.merchantUid,

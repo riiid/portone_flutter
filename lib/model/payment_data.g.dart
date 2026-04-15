@@ -8,6 +8,7 @@ part of 'payment_data.dart';
 
 PaymentData _$PaymentDataFromJson(Map<String, dynamic> json) => PaymentData(
       pg: json['pg'] as String?,
+      channelKey: json['channelKey'] as String?,
       payMethod: json['pay_method'] as String,
       escrow: json['escrow'] as bool?,
       merchantUid: json['merchant_uid'] as String,
@@ -76,6 +77,7 @@ Map<String, dynamic> _$PaymentDataToJson(PaymentData instance) {
   }
 
   writeNotNull('pg', instance.pg);
+  writeNotNull('channelKey', instance.channelKey);
   val['pay_method'] = instance.payMethod;
   writeNotNull('escrow', instance.escrow);
   val['merchant_uid'] = instance.merchantUid;
